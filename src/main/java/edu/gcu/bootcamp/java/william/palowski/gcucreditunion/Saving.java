@@ -2,9 +2,9 @@ package edu.gcu.bootcamp.java.william.palowski.gcucreditunion;
 
 public class Saving extends Account{
 
-		private double serviceFee;
-		private double annualInterestRate;
-		private double minBalance;
+		private double serviceFee;  //set to $25.00 in the main class
+		private double annualInterestRate; // set to .06 in the main class. only used in calculating end of month balance in savings
+		private double minBalance; // set to $200.00 in the main class
 		
 		public double getServiceFee() {
 			return serviceFee;

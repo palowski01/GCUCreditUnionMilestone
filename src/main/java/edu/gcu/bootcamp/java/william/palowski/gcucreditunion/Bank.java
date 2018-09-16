@@ -1,3 +1,7 @@
+/*
+ * Bank Application created by William Palowski
+ */
+
 package edu.gcu.bootcamp.java.william.palowski.gcucreditunion;
 
 import java.util.Scanner;
@@ -32,8 +36,12 @@ public class Bank {
 		this.name = name;
 	}
 	
+	/*
+	 * Creates menu for the Banking application
+	 */
 	private void displayMenu(Checking checking, Saving saving) {
 		int option = 0;
+		//The do loop allows you to stay in the menu until a 9 is entered to exit the application
 		do {
 			System.out.println("=========================================");
 			System.out.println("               MAIN MENU                 ");
@@ -51,18 +59,15 @@ public class Bank {
 			System.out.println("9: : Exit");
 			option = input.nextInt();
 			System.out.println();
-//			if (option == 8) {
-//				option = 11;
-//			}
-//			else if (option == 7) {
-//				option = 11;
-//			}
 			this.actionMenu(option, checking, saving);
 		}while(option != 9);
 		
-		
 	}
 	
+/*
+ * The action menu allows takes an input from the main menu and sends you to the proper action.  Each appropriate method is called
+ * depending on the option you choose.
+ */
 	private void actionMenu(int opt, Checking checking, Saving saving) {
 		switch(opt) {
 			case 1: this.displayDepositChecking(checking);
@@ -82,15 +87,12 @@ public class Bank {
 		}
 	}
 	
+/*
+ * Calculates the end of month totals for each account to include any service fees or overdraft fees.	
+ */
 	private void doEndOfMonth(Checking checking, Saving saving) {
-//		saving.setAnnualInterestRate(.06);
-//		saving.setMinBalance(200.00);
-//		checking.setOverDraft(45.00);
-//		
-//		double minBalance = saving.getMinBalance();
-//		double cBalance = checking.getBalance();
-//		double sBalance = saving.getBalance();
-		double interestRatePerMonth = (saving.getAnnualInterestRate()/12);
+
+		double interestRatePerMonth = (saving.getAnnualInterestRate()/12); //holds interest rate per month for ease of calcualtion
 		double interestOnAccount = saving.balance * interestRatePerMonth;
 		
 		System.out.println("Calculate end of month items");
@@ -117,6 +119,9 @@ public class Bank {
 		System.out.println();
 	}
 	
+/*
+ * Displayed exit screen when 9 is pressed	
+ */
 	private void displayExitScreen() {
 		System.out.println("=========================================");
 		System.out.println("      THANK YOU FOR BANKING WITH         ");
@@ -124,6 +129,9 @@ public class Bank {
 		System.out.println("=========================================");
 	}
 	
+/*
+ * Displays the balance on both accounts	
+ */
 	private void displayBalanceScreen(Checking checking, Saving saving) {
 		
 		System.out.printf("For checking account #%s your balance is $%.2f", checking.account, checking.balance);
@@ -131,10 +139,12 @@ public class Bank {
 		System.out.printf("For savings account #%s your balance is $%.2f", saving.account, saving.balance);
 		System.out.println();
 	}
-	
+
+/*
+ * Displays the withdraw from savings screen and asks the amount to withdraw.  Then accesses the doWithdraw method in Account
+ */
 	private void displayWithdrawSavings(Saving saving) {
-//		saving.setMinBalance(200);
-//		saving.setServiceFee(25);
+
 		System.out.println("WITHDRAW FROM SAVINGS ACCOUNT #" + saving.account);
 		System.out.printf("You will have a $%.2f service fee if balance is below $%.2f at the end of the month", 
 				saving.getServiceFee(), saving.getMinBalance());
@@ -147,6 +157,10 @@ public class Bank {
 		
 	}
 	
+/*
+ * Displays withdraw from checking menu.  Will ask for amount to withdraw and then either goto doWithdraw in Account or doWithdraw
+ * in Checking depending on the balance in the account.  Will also notify you if there is an overdraft fee assessed.
+ */
 	private void displayWithdrawChecking(Checking checking) {
 		
 		System.out.println("WITHDRAW FROM CHECKING ACCOUNT #" + checking.account);
@@ -163,7 +177,10 @@ public class Bank {
 		}
 		
 	}
-	
+
+/*
+ * Displays deposit into savings screen and asks for amount to deposit.  Then calls the doDeposit method in Account class
+ */
 	private void displayDepositSaving(Saving saving) {
 		
 		System.out.println("DEPOSIT INTO SAVINGS ACCT #" + saving.account);
@@ -175,7 +192,10 @@ public class Bank {
 		saving.doDeposit(deposit);
 		
 	}
-	
+
+/*
+ * Displays deposit into checking screen and asks for amount to deposit.  Then calls the doDeposit method in Account Class
+ */
 	private void displayDepositChecking(Checking checking) {
 		
 		System.out.println("DEPOSIT INTO CHEKCING ACCT #" + checking.account);
