@@ -18,6 +18,7 @@ public class Checking extends Account{
  * 
  * this method is only used when the balance in the checking account is below 0.  this will assess the overdraft charge to the account.
  */
+
 	public void doWithdraw(double amount) {
 		
 		double newBalance = this.balance - amount;
@@ -30,7 +31,11 @@ public class Checking extends Account{
 			this.setBalance(newBalance);
 		}
 	}
-	
+/**
+ * 	
+ * @param balance
+ * @param account
+ */
 	public Checking(double balance, String account) {
 		this.balance = balance;
 		this.account = account;

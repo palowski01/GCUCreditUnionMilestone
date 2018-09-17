@@ -22,6 +22,11 @@ public class Account {
  * This withdraw method will work for both the saving class and the checking class.  See the checking class for an override method of the 
  * same name.
  */
+	
+/**
+ * 
+ * @param amount
+ */
 	public void doWithdraw(double amount) {
 		double newBalance = this.balance - amount;
 		this.setBalance(newBalance);
@@ -30,6 +35,11 @@ public class Account {
 	
 /*
  * The doDeposit method works for both the saving class and the checking class
+ */
+	
+/**
+ * 
+ * @param amount
  */
 	public void doDeposit(double amount) {
 		double newBalance = this.balance + amount;

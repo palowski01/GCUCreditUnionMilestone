@@ -11,7 +11,7 @@ public class Bank {
 	private String name;
 	
 	public static void main(String[] args) {
-		
+	
 		Bank gcu = new Bank("GCU Credit Union");
 		
 		Checking billChecking = new Checking(5000.00, "991773");
@@ -38,6 +38,12 @@ public class Bank {
 	
 	/*
 	 * Creates menu for the Banking application
+	 */
+	
+	/**
+	 * 
+	 * @param checking
+	 * @param saving
 	 */
 	private void displayMenu(Checking checking, Saving saving) {
 		int option = 0;
@@ -68,6 +74,12 @@ public class Bank {
  * The action menu allows takes an input from the main menu and sends you to the proper action.  Each appropriate method is called
  * depending on the option you choose.
  */
+/**
+ * 
+ * @param opt
+ * @param checking
+ * @param saving
+ */
 	private void actionMenu(int opt, Checking checking, Saving saving) {
 		switch(opt) {
 			case 1: this.displayDepositChecking(checking);
@@ -89,6 +101,11 @@ public class Bank {
 	
 /*
  * Calculates the end of month totals for each account to include any service fees or overdraft fees.	
+ */
+/**
+ * 
+ * @param checking
+ * @param saving
  */
 	private void doEndOfMonth(Checking checking, Saving saving) {
 
@@ -132,6 +149,11 @@ public class Bank {
 /*
  * Displays the balance on both accounts	
  */
+/**
+ * 	
+ * @param checking
+ * @param saving
+ */
 	private void displayBalanceScreen(Checking checking, Saving saving) {
 		
 		System.out.printf("For checking account #%s your balance is $%.2f", checking.account, checking.balance);
@@ -142,6 +164,10 @@ public class Bank {
 
 /*
  * Displays the withdraw from savings screen and asks the amount to withdraw.  Then accesses the doWithdraw method in Account
+ */
+/**
+ * 	
+ * @param saving
  */
 	private void displayWithdrawSavings(Saving saving) {
 
@@ -160,6 +186,10 @@ public class Bank {
 /*
  * Displays withdraw from checking menu.  Will ask for amount to withdraw and then either goto doWithdraw in Account or doWithdraw
  * in Checking depending on the balance in the account.  Will also notify you if there is an overdraft fee assessed.
+ */
+/**
+ * 
+ * @param checking
  */
 	private void displayWithdrawChecking(Checking checking) {
 		
@@ -181,6 +211,10 @@ public class Bank {
 /*
  * Displays deposit into savings screen and asks for amount to deposit.  Then calls the doDeposit method in Account class
  */
+/**
+ * 
+ * @param saving
+ */
 	private void displayDepositSaving(Saving saving) {
 		
 		System.out.println("DEPOSIT INTO SAVINGS ACCT #" + saving.account);
@@ -195,6 +229,10 @@ public class Bank {
 
 /*
  * Displays deposit into checking screen and asks for amount to deposit.  Then calls the doDeposit method in Account Class
+ */
+/**
+ * 
+ * @param checking
  */
 	private void displayDepositChecking(Checking checking) {
 		

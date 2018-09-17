@@ -24,7 +24,11 @@ public class Saving extends Account{
 		public void setMinBalance(double minBalance) {
 			this.minBalance = minBalance;
 		}
-		
+/**
+ *  		
+ * @param balance
+ * @param account
+ */
 		public Saving(double balance, String account) {
 			this.balance = balance;
 			this.account = account;
